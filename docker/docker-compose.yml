@@ -1,0 +1,24 @@
+version: "3"
+services:
+  todotests:
+    platform: linux/x86_64
+    image: todotests
+    depends_on:
+      - todoback
+      - todofront
+    environment:
+      - FRONT_HOST=todofront
+  todofront:
+    platform: linux/x86_64
+    image: todofrontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - todoback
+    environment:
+      - REACT_APP_API_HOST=todoback
+  todoback:
+    platform: linux/x86_64
+    image: todobackend
+    ports:
+      - 3001:3001
