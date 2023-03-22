@@ -10,7 +10,7 @@ WORKDIR /app
 # adicionando o arquivo node_modules (descompactado) a imagem (o ADD descompacta e adiciona ao mesmo tempo)
 ADD node_modules.tar.gz .
 
-# copiando todos os arquivos ./ para o diretório app
+# copiando todos os arquivos . para o diretório app
 COPY . .
 
 # executa sempre que inicia, e não pode ser sobreescrito
