@@ -7,14 +7,14 @@ EXPOSE 3000
 # adicionando o arquivo node_modules (descompactado) a imagem (o ADD descompacta e adiciona ao mesmo tempo)
 ADD node_modules.tar.gz .
 
-# copiando tudo para a imagem
+# copiando todos os arquivos ./ para o diretório app
 COPY . /app
 
-# diretório de trabalho
+# diretório de trabalho app
 WORKDIR /app
 
-# aqui executa sempre que inicia, e não pode ser sobreescrito
+# executa sempre que inicia, e não pode ser sobreescrito
 ENTRYPOINT [ "npm" ]
 
-# vai executar quando iniciar, mas pode ser sobreescrito
+# executa quando inicia, e pode ser sobreescrito (no terminal)
 CMD [ "start" ]
